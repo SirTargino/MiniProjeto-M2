@@ -1,0 +1,94 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    min-height: 100vh;
+    background-color: #a3b18a;
+}
+
+#main{
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #dad7cd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#cadastro{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+input{
+    border: none;
+    border-radius: 5px;
+    padding: 2px;
+    color: #3a5a40;
+}
+
+
+h1{
+    word-spacing: 3px;
+    color: #344e41;
+}
+
+button{
+    background-color: #3a5a40;
+    color: white;
+    border: none;
+    padding: 2px;
+    border-radius: 5px;
+}
+
+#edititems, #apaga{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #dad7cd;
+}
+
+table {
+    display: none;
+    width: 80vw;
+    background-color: #dad7cd;
+    color: #344e41;
+}
+
+td {
+    width: 26.6vw;
+}
+
+thead{
+    text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+    div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    input{
+        height: 40px;
+        width: 90%;
+    }
+    button{
+        height: 40px;
+    }
+}
