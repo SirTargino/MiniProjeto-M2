@@ -1,7 +1,5 @@
 const cadastrar = document.getElementById("cadastrar")
 var visualizar = document.getElementById("ver")
-// botoesApaga = document.getElementsByClassName("apagar")
-// botoesApaga.addEventListener("click", apagarLinha())
 var tabelaVisivel = false
 
 class Produto {
@@ -17,7 +15,7 @@ let produtos = []
 cadastrar.addEventListener("click", () => {
 	let nome = document.getElementById("nome")
 	let valor = document.getElementById("valor")
-	let codigo = produtos.length+1
+	let codigo = produtos.length + 1
 
 	if (nome.value == "" | valor.value == "" | codigo.value == "") {
 		alert("Um dos valores está vazio. Por favor, preencha corretamente.")
@@ -43,7 +41,7 @@ cadastrar.addEventListener("click", () => {
 			tr.appendChild(tdNome)
 			tr.appendChild(tdValor)
 			tr.appendChild(tdCodigo);
-			tdCodigo.id = "codigoproduto"+(i+1)
+			tdCodigo.id = "codigoproduto" + (i + 1)
 			corpoTabela.appendChild(tr);
 		}
 
@@ -85,7 +83,6 @@ editar.addEventListener("click", () => {
 	tdValor.textContent = novoProduto.valor
 	tdCodigo.textContent = novoProduto.codigo
 
-
 	produtoRemovido.innerHTML = null
 
 	produtoRemovido.appendChild(tdNome)
@@ -97,25 +94,25 @@ const botaoApagar = document.getElementById("apagar")
 
 botaoApagar.addEventListener("click", () => {
 	var selecionar = document.getElementById("escolheapaga")
-	if(produtos.length == 0 || produtos.length < selecionar.value || selecionar.value < 0){
+	if (produtos.length == 0 || produtos.length < selecionar.value || selecionar.value < 0) {
 		alert("Valor inválido!")
-	}else{
+	} else {
 		var corpoTabela = document.querySelector('tbody');
 		var produtoRemovido = document.getElementById("linha" + (selecionar.value - 1))
 		console.log(produtoRemovido)
 		produtos.splice(selecionar.value - 1, 1)
 		corpoTabela.removeChild(produtoRemovido)
-		alert("Produto "+selecionar.value+" removido com sucesso!")
+		alert("Produto " + selecionar.value + " removido com sucesso!")
 		var corpoTabela = document.querySelector('tbody');
 		corpoTabela.innerHTML = ""
 		for (let i = 0; i < produtos.length; i++) {
-			produtos[i].codigo = i+1
-            var corpoTabela = document.querySelector('tbody');
+			produtos[i].codigo = i + 1
+			var corpoTabela = document.querySelector('tbody');
 
-    		var tr = document.createElement('tr');
-    		var tdNome = document.createElement('td');
-    		var tdValor = document.createElement('td');
-    		var tdCodigo = document.createElement('td');
+			var tr = document.createElement('tr');
+			var tdNome = document.createElement('td');
+			var tdValor = document.createElement('td');
+			var tdCodigo = document.createElement('td');
 			tdNome.textContent = produtos[i].nome;
 			tdValor.textContent = produtos[i].valor;
 			tdCodigo.textContent = produtos[i].codigo;
@@ -125,7 +122,7 @@ botaoApagar.addEventListener("click", () => {
 			tr.appendChild(tdNome)
 			tr.appendChild(tdValor)
 			tr.appendChild(tdCodigo);
-			tdCodigo.id = "codigoproduto"+(i+1)
+			tdCodigo.id = "codigoproduto" + (i + 1)
 			corpoTabela.appendChild(tr);
 		}
 		selecionar.value = ''

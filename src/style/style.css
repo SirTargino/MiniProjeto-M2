@@ -12,11 +12,11 @@ body {
     justify-content: center;
     width: 100vw;
     min-height: 100vh;
-    background: rgb(2,0,36);
-    background: linear-gradient(142deg, rgba(2,0,36,1) 0%, rgba(82,22,185,1) 35%, rgba(39,12,80,1) 100%);
+    background: rgb(2, 0, 36);
+    background: linear-gradient(142deg, rgba(2, 0, 36, 1) 0%, rgba(82, 22, 185, 1) 35%, rgba(39, 12, 80, 1) 100%);
 }
 
-input{
+input {
     border: none;
     border-radius: 5px;
     padding: 2px;
@@ -24,14 +24,13 @@ input{
     width: 70vw;
 }
 
-
-h1{
+h1 {
     word-spacing: 3px;
     color: white;
     font-size: xx-large;
 }
 
-button{
+button {
     background-color: #270c50;
     color: white;
     border: none;
@@ -54,34 +53,36 @@ td {
     width: 26.6vw;
 }
 
-thead{
+thead {
     text-align: center;
 }
 
 @media only screen and (max-width: 600px) {
-    div{
+    div {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
     }
-    input{
+
+    input {
         height: 40px;
         width: 90%;
     }
-    button{
+
+    button {
         height: 40px;
     }
 }
 
-#edititems{
+#edititems {
     display: none;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-#main{
+#main {
     background-color: #cbc3d8;
     padding: 20px;
     display: flex;
@@ -90,45 +91,46 @@ thead{
     justify-content: center;
     border-radius: 10px;
     -webkit-box-shadow: 0px 0px 30px 0px rgba(255, 255, 255, 0.74);
-    -moz-box-shadow: 0px 0px 30px 0px rgba(255,255,255,0.74);
-    box-shadow: 0px 0px 30px 0px rgba(255,255,255,0.74);
+    -moz-box-shadow: 0px 0px 30px 0px rgba(255, 255, 255, 0.74);
+    box-shadow: 0px 0px 30px 0px rgba(255, 255, 255, 0.74);
 }
 
-#cadastro{
+#cadastro {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-#inputs_cadastro{
+#inputs_cadastro {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-#alternar{
+#alternar {
     display: flex;
     flex-direction: row;
     align-items: start;
     width: 73%;
 }
 
-#apaga, #edita{
+#apaga,
+#edita {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-#mudapracadastrar{
+#mudapracadastrar {
     text-decoration: underline;
     text-decoration-color: white;
     text-decoration-thickness: 2px;
 }
 
-#mudapraeditar{
+#mudapraeditar {
     text-decoration: none;
     text-decoration-color: white;
     text-decoration-thickness: 2px;
