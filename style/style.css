@@ -80,6 +80,13 @@ thead {
     button {
         height: 40px;
     }
+
+    #botoes{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 #edititems {
