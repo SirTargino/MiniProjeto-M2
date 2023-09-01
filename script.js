@@ -69,37 +69,43 @@ visualizar.addEventListener("click", () => {
 const editar = document.getElementById("editar")
 
 editar.addEventListener("click", () => {
-	console.log(produtos)
 	var escolherProduto = document.getElementById("escolhedita").value
-	var novoProduto = new Produto(document.getElementById("novonome").value, document.getElementById("novovalor").value, escolherProduto)
-	produtos[escolherProduto - 1] = novoProduto
+	if (produtos.length == 0 || produtos.length < escolherProduto || escolherProduto < 0) {
+		alert("Código inválido!")
+	}else if(document.getElementById("novonome").value == "" || document.getElementById("novovalor").value == ""){
+		alert("Um dos valores está vazio! Preencha corretamente.")
+	}else {
+		var novoProduto = new Produto(document.getElementById("novonome").value, document.getElementById("novovalor").value, escolherProduto)
+		produtos[escolherProduto - 1] = novoProduto
 
-	var produtoRemovido = document.getElementById("linha" + (escolherProduto - 1))
-	var tdNome = document.createElement('td');
-	var tdValor = document.createElement('td');
-	var tdCodigo = document.createElement("td");
+		var produtoRemovido = document.getElementById("linha" + (escolherProduto - 1))
+		var tdNome = document.createElement('td');
+		var tdValor = document.createElement('td');
+		var tdCodigo = document.createElement("td");
 
-	tdNome.textContent = novoProduto.nome
-	tdValor.textContent = novoProduto.valor
-	tdCodigo.textContent = novoProduto.codigo
+		tdNome.textContent = novoProduto.nome
+		tdValor.textContent = novoProduto.valor
+		tdCodigo.textContent = novoProduto.codigo
 
-	produtoRemovido.innerHTML = null
+		produtoRemovido.innerHTML = null
 
-	produtoRemovido.appendChild(tdNome)
-	produtoRemovido.appendChild(tdValor)
-	produtoRemovido.appendChild(tdCodigo)
+		produtoRemovido.appendChild(tdNome)
+		produtoRemovido.appendChild(tdValor)
+		produtoRemovido.appendChild(tdCodigo)
+
+		alert("Produto "+escolherProduto+" editado com sucesso!")
+	}
 })
 
 const botaoApagar = document.getElementById("apagar")
 
 botaoApagar.addEventListener("click", () => {
 	var selecionar = document.getElementById("escolheapaga")
-	if (produtos.length == 0 || produtos.length < selecionar.value || selecionar.value < 0) {
+	if (selecionar.value < 0 || produtos.length == 0 || produtos.length < selecionar.value) {
 		alert("Valor inválido!")
-	} else {
+	}else {
 		var corpoTabela = document.querySelector('tbody');
 		var produtoRemovido = document.getElementById("linha" + (selecionar.value - 1))
-		console.log(produtoRemovido)
 		produtos.splice(selecionar.value - 1, 1)
 		corpoTabela.removeChild(produtoRemovido)
 		alert("Produto " + selecionar.value + " removido com sucesso!")

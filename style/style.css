@@ -12,15 +12,22 @@ body {
     justify-content: center;
     width: 100vw;
     min-height: 100vh;
-    background: rgb(2, 0, 36);
-    background: linear-gradient(142deg, rgba(2, 0, 36, 1) 0%, rgba(82, 22, 185, 1) 35%, rgba(39, 12, 80, 1) 100%);
+    background-color:hsla(117,0%,0%,1);
+    background-image:
+    radial-gradient(at 3% 45%, hsla(217,100%,39%,1) 0px, transparent 50%),
+    radial-gradient(at 45% 77%, hsla(268,95%,30%,1) 0px, transparent 50%),
+    radial-gradient(at 20% 14%, hsla(206,44%,12%,1) 0px, transparent 50%),
+    radial-gradient(at 54% 33%, hsla(264,77%,37%,1) 0px, transparent 50%),
+    radial-gradient(at 40% 97%, hsla(131,0%,0%,1) 0px, transparent 50%),
+    radial-gradient(at 2% 72%, hsla(218,88%,63%,1) 0px, transparent 50%),
+    radial-gradient(at 84% 65%, hsla(258,69%,34%,1) 0px, transparent 50%);
 }
 
 input {
     border: none;
     border-radius: 5px;
     padding: 2px;
-    color: #3a5a40;
+    color: #270c50;
     width: 70vw;
 }
 
@@ -42,7 +49,7 @@ button {
 table {
     display: none;
     width: 80vw;
-    background-color: white;
+    background-color: #d4d4d4;
     color: #270c50;
     border-radius: 10px;
     border-collapse: collapse;
@@ -80,10 +87,16 @@ thead {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    -webkit-animation: anima-entraeditar 2s;
+}
+
+@-webkit-keyframes anima-entraeditar {
+    from { opacity: 0;}
+    to { opacity: 1;}
 }
 
 #main {
-    background-color: #cbc3d8;
+    background-color: #d4d4d4;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -100,6 +113,12 @@ thead {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    -webkit-animation: anima-entracadastrar 2s;
+}
+
+@-webkit-keyframes anima-entracadastrar {
+    from { opacity: 0;}
+    to { opacity: 1;}
 }
 
 #inputs_cadastro {
@@ -128,10 +147,22 @@ thead {
     text-decoration: underline;
     text-decoration-color: white;
     text-decoration-thickness: 2px;
+    -webkit-animation: anima-cadastrar 3s;
+}
+
+@-webkit-keyframes anima-cadastrar {
+    from { opacity: 0; margin-top: -150px;}
+    to { opacity: 1;margin-top: 0px;}
 }
 
 #mudapraeditar {
     text-decoration: none;
     text-decoration-color: white;
     text-decoration-thickness: 2px;
+    -webkit-animation: anima-editar 3s;
+}
+
+@-webkit-keyframes anima-editar {
+    from { opacity: 0; margin-top: -150px;}
+    to { opacity: 1;margin-top: 0px;}
 }
