@@ -9,39 +9,45 @@
 </head>
 
 <body>
-	<div id="main">
-		<h1>cadastrar produtos</h1>
-		<br>
-		<div id="cadastro">
-			<div>
-				<input type="text" id="nome" placeholder="Nome do produto">
-				<input type="text" id="valor" placeholder="Valor do produto">
-				<input type="text" id="codigo" placeholder="Código do produto">
-			</div>
-			<br>
-			<div>
-				<button id="cadastrar">cadastrar</button>
-				<button id="ver">visualizar</button>
-			</div>
-		</div>
+	<div id="alternar">
+		<h1 id="mudapracadastrar">Cadastrar</h1>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<h1 id="mudapraeditar">Editar</h1>
 	</div>
 	<br>
-	<div id="edititems">
-		<div id="apaga">
-			<input type="number" id="escolheapaga" placeholder="Código do produto">
+	<div id="main">
+		<br>
+		<div id="cadastro">
+			<div id="inputs_cadastro">
+				<input type="text" id="nome" placeholder="Nome do produto">
+				<br>
+				<input type="text" id="valor" placeholder="Valor do produto">
+			</div>
 			<br>
-			<button id="apagar">apagar</button>
+			<div>
+				<button id="cadastrar">Cadastrar</button>
+				<button id="ver">Visualizar</button>
+			</div>
 		</div>
-		<br>
-		<div id="edita">
-			<input type="number" id="escolhedita" placeholder="Código do produto">
-			<input type="text" id="novonome" placeholder="Novo nome do produto">
-			<input type="text" id="novovalor" placeholder="Novo valor do produto">
-			<input type="text" id="novocodigo" placeholder="Novo código do produto">
+		<div id="edititems">
+			<div id="apaga">
+				<input type="number" id="escolheapaga" placeholder="Código do produto">
+				<br>
+				<button id="apagar">Apagar</button>
+			</div>
+			<br>
+			<div id="edita">
+				<input type="number" id="escolhedita" placeholder="Código do produto">
+				<br>
+				<input type="text" id="novonome" placeholder="Novo nome do produto">
+				<br>
+				<input type="text" id="novovalor" placeholder="Novo valor do produto">
+			</div>
+			<br>
+			<button id="editar">Editar</button>
 		</div>
-		<br>
-		<button id="editar">editar</button>
 	</div>
+
 	<br>
 	<p id="texto"></p>
 	<table border="1">
