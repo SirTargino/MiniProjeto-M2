@@ -158,7 +158,7 @@ mudaCadastrar.addEventListener("click", () => {
 })
 
 function salvaDados() {
-	if (produtos.length !== 0) {
+	if (produtos !== null) {
 		const itens = JSON.parse(localStorage.getItem('produtos'))
 		console.log(itens)
 
@@ -184,6 +184,8 @@ function salvaDados() {
 			tdCodigo.id = "codigoproduto" + (i + 1)
 			corpoTabela.appendChild(tr);
 	}
+	} else{
+		produtos = []
 	}
 }
 
