@@ -56,7 +56,8 @@ cadastrar.addEventListener("click", () => {
 var primeiraVez = true
 
 visualizar.addEventListener("click", () => {
-	if(primeiraVez === true){
+	if (primeiraVez === true) {
+		var tabela = document.querySelector("table")
 		if (tabelaVisivel === false) {
 			tabela.style.display = "block"
 			tabelaVisivel = true
@@ -68,8 +69,7 @@ visualizar.addEventListener("click", () => {
 		}
 		primeiraVez = false
 		salvaDados()
-	}else{
-		var tabela = document.querySelector("table")
+	} else {
 		if (tabelaVisivel === false) {
 			tabela.style.display = "block"
 			tabelaVisivel = true
