@@ -53,18 +53,33 @@ cadastrar.addEventListener("click", () => {
 	}
 })
 
+var primeiraVez = true
+
 visualizar.addEventListener("click", () => {
-	var tabela = document.querySelector("table")
-	if (tabelaVisivel === false) {
-		tabela.style.display = "block"
-		tabelaVisivel = true
-		visualizar.textContent = "Ocultar"
-	} else {
-		tabela.style.display = "none"
-		tabelaVisivel = false
-		visualizar.textContent = "Visualizar"
+	if(primeiraVez === true){
+		if (tabelaVisivel === false) {
+			tabela.style.display = "block"
+			tabelaVisivel = true
+			visualizar.textContent = "Ocultar"
+		} else {
+			tabela.style.display = "none"
+			tabelaVisivel = false
+			visualizar.textContent = "Visualizar"
+		}
+		primeiraVez = false
+		salvaDados()
+	}else{
+		var tabela = document.querySelector("table")
+		if (tabelaVisivel === false) {
+			tabela.style.display = "block"
+			tabelaVisivel = true
+			visualizar.textContent = "Ocultar"
+		} else {
+			tabela.style.display = "none"
+			tabelaVisivel = false
+			visualizar.textContent = "Visualizar"
+		}
 	}
-	salvaDados()
 })
 
 const editar = document.getElementById("editar")
