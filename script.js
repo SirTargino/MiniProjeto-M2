@@ -48,7 +48,7 @@ cadastrar.addEventListener("click", () => {
 		nome.value = ""
 		valor.value = ""
 		codigo.value = ""
-
+		localStorage.setItem("produtos", JSON.stringify(produtos))
 		alert("Produto cadastrado com sucesso!")
 	}
 })
@@ -92,7 +92,7 @@ editar.addEventListener("click", () => {
 		produtoRemovido.appendChild(tdNome)
 		produtoRemovido.appendChild(tdValor)
 		produtoRemovido.appendChild(tdCodigo)
-
+		localStorage.setItem("produtos", JSON.stringify(produtos))
 		alert("Produto "+escolherProduto+" editado com sucesso!")
 	}
 })
@@ -108,6 +108,7 @@ botaoApagar.addEventListener("click", () => {
 		var produtoRemovido = document.getElementById("linha" + (selecionar.value - 1))
 		produtos.splice(selecionar.value - 1, 1)
 		corpoTabela.removeChild(produtoRemovido)
+		localStorage.setItem("produtos", JSON.stringify(produtos))
 		alert("Produto " + selecionar.value + " removido com sucesso!")
 		var corpoTabela = document.querySelector('tbody');
 		corpoTabela.innerHTML = ""
@@ -155,3 +156,33 @@ mudaCadastrar.addEventListener("click", () => {
 	mudaCadastrar.style.textDecoration = "underline"
 	mudaEditar.style.textDecoration = "none"
 })
+
+function salvaDados(){
+	const itens = JSON.parse(localStorage.getItem('produtos'))
+	console.log(itens)
+
+	produtos = itens
+
+	for (let i = 0; i < itens.length; i++) {
+		itens[i].codigo = i + 1
+		var corpoTabela = document.querySelector('tbody');
+
+		var tr = document.createElement('tr');
+		var tdNome = document.createElement('td');
+		var tdValor = document.createElement('td');
+		var tdCodigo = document.createElement('td');
+		tdNome.textContent = itens[i].nome;
+		tdValor.textContent = itens[i].valor;
+		tdCodigo.textContent = itens[i].codigo;
+
+		tr.id = "linha" + i
+
+		tr.appendChild(tdNome)
+		tr.appendChild(tdValor)
+		tr.appendChild(tdCodigo);
+		tdCodigo.id = "codigoproduto" + (i + 1)
+		corpoTabela.appendChild(tr);
+	}
+}
+
+window.onload = salvaDados()
