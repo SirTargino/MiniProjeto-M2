@@ -64,6 +64,7 @@ visualizar.addEventListener("click", () => {
 		tabelaVisivel = false
 		visualizar.textContent = "Visualizar"
 	}
+	salvaDados()
 })
 
 const editar = document.getElementById("editar")
@@ -158,35 +159,29 @@ mudaCadastrar.addEventListener("click", () => {
 })
 
 function salvaDados() {
-	if (produtos !== null) {
-		const itens = JSON.parse(localStorage.getItem('produtos'))
-		console.log(itens)
+	const itens = JSON.parse(localStorage.getItem('produtos'))
+	console.log(itens)
 
-		produtos = itens
+	produtos = itens
 
-		for (let i = 0; i < itens.length; i++) {
-			itens[i].codigo = i + 1
-			var corpoTabela = document.querySelector('tbody');
+	for (let i = 0; i < itens.length; i++) {
+		itens[i].codigo = i + 1
+		var corpoTabela = document.querySelector('tbody');
 
-			var tr = document.createElement('tr');
-			var tdNome = document.createElement('td');
-			var tdValor = document.createElement('td');
-			var tdCodigo = document.createElement('td');
-			tdNome.textContent = itens[i].nome;
-			tdValor.textContent = itens[i].valor;
-			tdCodigo.textContent = itens[i].codigo;
+		var tr = document.createElement('tr');
+		var tdNome = document.createElement('td');
+		var tdValor = document.createElement('td');
+		var tdCodigo = document.createElement('td');
+		tdNome.textContent = itens[i].nome;
+		tdValor.textContent = itens[i].valor;
+		tdCodigo.textContent = itens[i].codigo;
 
-			tr.id = "linha" + i
+		tr.id = "linha" + i
 
-			tr.appendChild(tdNome)
-			tr.appendChild(tdValor)
-			tr.appendChild(tdCodigo);
-			tdCodigo.id = "codigoproduto" + (i + 1)
-			corpoTabela.appendChild(tr);
-	}
-	} else{
-		produtos = []
+		tr.appendChild(tdNome)
+		tr.appendChild(tdValor)
+		tr.appendChild(tdCodigo);
+		tdCodigo.id = "codigoproduto" + (i + 1)
+		corpoTabela.appendChild(tr);
 	}
 }
-
-window.onload = salvaDados()
