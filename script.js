@@ -72,9 +72,9 @@ editar.addEventListener("click", () => {
 	var escolherProduto = document.getElementById("escolhedita").value
 	if (produtos.length == 0 || produtos.length < escolherProduto || escolherProduto < 0) {
 		alert("Código inválido!")
-	}else if(document.getElementById("novonome").value == "" || document.getElementById("novovalor").value == ""){
+	} else if (document.getElementById("novonome").value == "" || document.getElementById("novovalor").value == "") {
 		alert("Um dos valores está vazio! Preencha corretamente.")
-	}else {
+	} else {
 		var novoProduto = new Produto(document.getElementById("novonome").value, document.getElementById("novovalor").value, escolherProduto)
 		produtos[escolherProduto - 1] = novoProduto
 
@@ -93,7 +93,7 @@ editar.addEventListener("click", () => {
 		produtoRemovido.appendChild(tdValor)
 		produtoRemovido.appendChild(tdCodigo)
 		localStorage.setItem("produtos", JSON.stringify(produtos))
-		alert("Produto "+escolherProduto+" editado com sucesso!")
+		alert("Produto " + escolherProduto + " editado com sucesso!")
 	}
 })
 
@@ -103,7 +103,7 @@ botaoApagar.addEventListener("click", () => {
 	var selecionar = document.getElementById("escolheapaga")
 	if (selecionar.value < 0 || produtos.length == 0 || produtos.length < selecionar.value) {
 		alert("Valor inválido!")
-	}else {
+	} else {
 		var corpoTabela = document.querySelector('tbody');
 		var produtoRemovido = document.getElementById("linha" + (selecionar.value - 1))
 		produtos.splice(selecionar.value - 1, 1)
@@ -157,31 +157,33 @@ mudaCadastrar.addEventListener("click", () => {
 	mudaEditar.style.textDecoration = "none"
 })
 
-function salvaDados(){
-	const itens = JSON.parse(localStorage.getItem('produtos'))
-	console.log(itens)
+function salvaDados() {
+	if (produtos.length !== 0) {
+		const itens = JSON.parse(localStorage.getItem('produtos'))
+		console.log(itens)
 
-	produtos = itens
+		produtos = itens
 
-	for (let i = 0; i < itens.length; i++) {
-		itens[i].codigo = i + 1
-		var corpoTabela = document.querySelector('tbody');
+		for (let i = 0; i < itens.length; i++) {
+			itens[i].codigo = i + 1
+			var corpoTabela = document.querySelector('tbody');
 
-		var tr = document.createElement('tr');
-		var tdNome = document.createElement('td');
-		var tdValor = document.createElement('td');
-		var tdCodigo = document.createElement('td');
-		tdNome.textContent = itens[i].nome;
-		tdValor.textContent = itens[i].valor;
-		tdCodigo.textContent = itens[i].codigo;
+			var tr = document.createElement('tr');
+			var tdNome = document.createElement('td');
+			var tdValor = document.createElement('td');
+			var tdCodigo = document.createElement('td');
+			tdNome.textContent = itens[i].nome;
+			tdValor.textContent = itens[i].valor;
+			tdCodigo.textContent = itens[i].codigo;
 
-		tr.id = "linha" + i
+			tr.id = "linha" + i
 
-		tr.appendChild(tdNome)
-		tr.appendChild(tdValor)
-		tr.appendChild(tdCodigo);
-		tdCodigo.id = "codigoproduto" + (i + 1)
-		corpoTabela.appendChild(tr);
+			tr.appendChild(tdNome)
+			tr.appendChild(tdValor)
+			tr.appendChild(tdCodigo);
+			tdCodigo.id = "codigoproduto" + (i + 1)
+			corpoTabela.appendChild(tr);
+	}
 	}
 }
 
